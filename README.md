@@ -10,3 +10,6 @@ https://zhuanlan.zhihu.com/p/24339183?refer=deeplearning-surfing.
 
 http://zangbo.me/2017/06/06/Word2Vec_Negative-Sample/.
 
+https://blog.csdn.net/yujianmin1990/article/details/80640964.
+
+
