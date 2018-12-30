@@ -22,7 +22,7 @@ https://www.hardikp.com/2017/09/17/youtube-recommendations/
 ### 数据
 > 数据下载来自FaceBook的fastText官方数据，具体见：https://github.com/facebookresearch/fastText/blob/master/classification-example.sh. ，数据下载及处理如下：
 
-```linux
+```shell
 wget https://github.com/le-scientifique/torchDatasets/raw/master/dbpedia_csv.tar.gz
 
 tar -xzvf dbpedia_csv.tar.gz
