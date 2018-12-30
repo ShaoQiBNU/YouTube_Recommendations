@@ -215,7 +215,6 @@ train_lst = linecache.getlines(train_file)
 pred = multilayer_perceptron(project_embedding, weights, biases)
 
 #### loss 损失计算 ####
-
 #### NCE weights ####
 nce_weights = tf.Variable(
     tf.truncated_normal([n_classes, n_hidden_2], stddev=1.0 / math.sqrt(n_hidden_2)))
@@ -244,7 +243,6 @@ with tf.Session() as sess:
     #### epoch 世代循环 ####
     total_batch = int(len(train_lst) / batch_size)
     for epoch in range(training_epochs):
-        avg_cost = 0.
         for i in range(total_batch):
             step += 1
 
