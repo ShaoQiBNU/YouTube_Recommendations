@@ -6,15 +6,42 @@ YouTube推荐算法
 
 ## 论文解读
 
-https://zhuanlan.zhihu.com/p/25343518.
+https://zhuanlan.zhihu.com/p/25343518
 
-https://zhuanlan.zhihu.com/p/24339183?refer=deeplearning-surfing.
+https://zhuanlan.zhihu.com/p/24339183?refer=deeplearning-surfing
 
-http://zangbo.me/2017/06/06/Word2Vec_Negative-Sample/.
+http://zangbo.me/2017/06/06/Word2Vec_Negative-Sample/
 
-https://blog.csdn.net/yujianmin1990/article/details/80640964.
+https://blog.csdn.net/yujianmin1990/article/details/80640964
+
+https://www.hardikp.com/2017/09/17/youtube-recommendations/
+
 
 ## 算法实现
+
+### 数据
+> 数据下载来自FaceBook的fastText官方数据，具体见：https://github.com/facebookresearch/fastText/blob/master/classification-example.sh. ，数据下载及处理如下：
+
+```linux
+wget https://github.com/le-scientifique/torchDatasets/raw/master/dbpedia_csv.tar.gz
+
+tar -xzvf dbpedia_csv.tar.gz
+
+normalize_text() {
+  tr '[:upper:]' '[:lower:]' | sed -e 's/^/__label__/g' | \
+    sed -e "s/'/ ' /g" -e 's/"//g' -e 's/\./ \. /g' -e 's/<br \/>/ /g' \
+        -e 's/,/ , /g' -e 's/(/ ( /g' -e 's/)/ ) /g' -e 's/\!/ \! /g' \
+        -e 's/\?/ \? /g' -e 's/\;/ /g' -e 's/\:/ /g' | tr -s " "}
+
+cat dbpedia_csv/train.csv | normalize_text > dbpedia.train
+
+cat dbpedia_csv/test.csv | normalize_text > dbpedia.test
+
+# 打乱文件顺序
+shuf dbpedia.train -o dbpedia.train2
+```
+
+### 代码
 
 > 算法参考https://github.com/ogerhsou/Youtube-Recommendation-Tensorflow. ，对其进行了详细注释，代码如下：
 
