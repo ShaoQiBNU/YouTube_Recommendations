@@ -6,7 +6,7 @@ import math
 
 ####################### dataset #####################
 train_file = "dbpedia_csv/dbpedia.train2"
-test_file = "dbpedia_csv/dbpedia.test"
+test_file = "dbpedia_csv/dbpedia.test2"
 
 ######## label字典和词袋字典 ########
 label_dict = {}
@@ -181,7 +181,7 @@ optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 #### accuracy 准确率 ####
 out_layer = tf.matmul(pred, tf.transpose(nce_weights)) + nce_biases
-correct_pred = tf.equal(tf.argmax(tf.nn.softmax(out_layer), 1), y_batch)
+correct_pred = tf.equal(tf.argmax(out_layer, 1), y_batch)
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 
