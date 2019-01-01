@@ -39,6 +39,8 @@ cat dbpedia_csv/test.csv | normalize_text > dbpedia.test
 
 # 打乱文件顺序
 shuf dbpedia.train -o dbpedia.train2
+
+shuf dbpedia.test -o dbpedia.test2
 ```
 
 ### 代码
@@ -54,7 +56,7 @@ import math
 
 ####################### dataset #####################
 train_file = "dbpedia_csv/dbpedia.train2"
-test_file = "dbpedia_csv/dbpedia.test"
+test_file = "dbpedia_csv/dbpedia.test2"
 
 ######## label字典和词袋字典 ########
 label_dict = {}
@@ -229,7 +231,7 @@ optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 #### accuracy 准确率 ####
 out_layer = tf.matmul(pred, tf.transpose(nce_weights)) + nce_biases
-correct_pred = tf.equal(tf.argmax(tf.nn.softmax(out_layer), 1), y_batch)
+correct_pred = tf.equal(tf.argmax(out_layer, 1), y_batch)
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 
@@ -268,6 +270,7 @@ with tf.Session() as sess:
         x, y, batch_mask, word_number = read_data(i*batch_size, batch_size, test_lst)
         print("Testing Accuracy:", sess.run(accuracy, feed_dict={x_batch: x, y_batch: y, emb_mask: batch_mask,
                                                                  word_num: word_number}))
+
 ```
 
 
