@@ -207,7 +207,7 @@ nce_weights = tf.Variable(
 
 nce_biases = tf.Variable(tf.zeros([n_classes]))
 
-### NCE loss的解析：https://www.cnblogs.com/xiaojieshisilang/p/9284634.html
+### NCE loss的解析：https://www.cnblogs.com/xiaojieshisilang/p/9284634.html 和 https://www.zhihu.com/question/50043438
 cost = tf.reduce_mean(tf.nn.nce_loss(weights=nce_weights, biases=nce_biases, labels=y_batch, inputs=pred,
                                      num_sampled=10, num_classes=n_classes))
 
