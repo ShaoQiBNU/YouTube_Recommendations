@@ -20,7 +20,7 @@ https://www.hardikp.com/2017/09/17/youtube-recommendations/
 ## 算法实现
 
 ### 数据
-> 数据下载来自FaceBook的fastText官方数据，具体见：https://github.com/facebookresearch/fastText/blob/master/classification-example.sh. ，数据下载及处理如下：
+> 数据下载来自FaceBook的fastText官方数据，具体见：https://github.com/facebookresearch/fastText/blob/master/classification-example.sh ，数据下载及处理如下：
 
 ```shell
 wget https://github.com/le-scientifique/torchDatasets/raw/master/dbpedia_csv.tar.gz
@@ -45,7 +45,7 @@ shuf dbpedia.test -o dbpedia.test2
 
 ### 代码
 
-> 算法参考https://github.com/ogerhsou/Youtube-Recommendation-Tensorflow. ，对其进行了详细注释，代码如下：
+> 算法参考https://github.com/ogerhsou/Youtube-Recommendation-Tensorflow ，对其进行了详细注释，代码如下：
 
 ```python
 ####################### load packages #####################
